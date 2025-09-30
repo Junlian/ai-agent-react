@@ -7,7 +7,9 @@ const HeroSection: React.FC = () => {
       <div className="hero-container">
         <div className="hero-content">
           <h1 className="hero-title">
-            AI Agent Development
+            <a href="https://junlian.github.io/ai-agent-react" className="hero-link">
+              AI Agent Development
+            </a>
             <span className="hero-highlight"> Hub</span>
           </h1>
           <p className="hero-description">

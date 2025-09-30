@@ -27,7 +27,7 @@ const BlogPostDetail: React.FC<BlogPostDetailProps> = () => {
     <div className="blog-post-detail">
       <div className="container">
         <nav className="breadcrumb">
-          <a href="https://junlian.github.io/ai-agent-react" className="back-link">← Back to AI Agent Hub</a>
+          <Link to="/" className="back-link">← Back to AI Agent Hub</Link>
         </nav>
         
         <article className="post-content">

@@ -1,0 +1,145 @@
+.topics-section {
+  padding: 80px 0;
+  background: white;
+}
+
+.topics-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.topics-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.topics-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, #1f2937 0%, #4f46e5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.topics-subtitle {
+  font-size: 1.25rem;
+  color: #6b7280;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.topics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+.topic-card {
+  background: white;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border: 1px solid #f3f4f6;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.topic-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--topic-color);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.topic-card:hover::before {
+  transform: scaleX(1);
+}
+
+.topic-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.topic-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.topic-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.topic-description {
+  color: #6b7280;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.topic-arrow {
+  width: 24px;
+  height: 24px;
+  color: var(--topic-color);
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+  margin-left: auto;
+}
+
+.topic-card:hover .topic-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.topic-arrow svg {
+  width: 100%;
+  height: 100%;
+  stroke-width: 2;
+}
+
+@media (max-width: 768px) {
+  .topics-section {
+    padding: 60px 0;
+  }
+  
+  .topics-title {
+    font-size: 2rem;
+  }
+  
+  .topics-subtitle {
+    font-size: 1.125rem;
+  }
+  
+  .topics-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .topic-card {
+    padding: 24px;
+  }
+  
+  .topic-icon {
+    font-size: 2.5rem;
+  }
+  
+  .topic-title {
+    font-size: 1.25rem;
+  }
+}

@@ -1,25 +1,60 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useMemo } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
+import { blogPosts, topics, BlogPost } from './data/blogPosts';
+import HeroSection from './components/HeroSection';
+import TopicsGrid from './components/TopicsGrid';
+import BlogPostsSection from './components/BlogPostsSection';
+import SearchBar from './components/SearchBar';
+import BlogPostDetail from './components/BlogPostDetail';
+
+function HomePage() {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+
+  const filteredPosts = useMemo(() => {
+    return blogPosts.filter(post => {
+      const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                           post.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                           post.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
+      
+      const matchesCategory = selectedCategory === 'all' || post.category === selectedCategory;
+      
+      return matchesSearch && matchesCategory;
+    });
+  }, [searchTerm, selectedCategory]);
+
+  return (
+    <>
+      <HeroSection />
+      
+      <SearchBar 
+        searchTerm={searchTerm}
+        onSearchChange={setSearchTerm}
+        selectedCategory={selectedCategory}
+        onCategoryChange={setSelectedCategory}
+      />
+      
+      <TopicsGrid topics={topics} />
+      
+      <BlogPostsSection 
+        posts={filteredPosts}
+        searchTerm={searchTerm}
+      />
+    </>
+  );
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/blog/:id" element={<BlogPostDetail />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

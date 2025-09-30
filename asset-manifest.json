@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/ai-agent-react/static/css/main.4aa1de6a.css",
+    "main.js": "/ai-agent-react/static/js/main.89cb2934.js",
+    "static/js/453.603d3c0d.chunk.js": "/ai-agent-react/static/js/453.603d3c0d.chunk.js",
+    "index.html": "/ai-agent-react/index.html",
+    "main.4aa1de6a.css.map": "/ai-agent-react/static/css/main.4aa1de6a.css.map",
+    "main.89cb2934.js.map": "/ai-agent-react/static/js/main.89cb2934.js.map",
+    "453.603d3c0d.chunk.js.map": "/ai-agent-react/static/js/453.603d3c0d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4aa1de6a.css",
+    "static/js/main.89cb2934.js"
+  ]
+}

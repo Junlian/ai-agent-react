@@ -45,13 +45,10 @@ function HomePage() {
   );
 }
 
-import Analytics from './components/Analytics';
-
 function App() {
   return (
     <Router>
       <div className="App">
-        <Analytics />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/blog/:id" element={<BlogPostDetail />} />
